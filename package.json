@@ -25,9 +25,11 @@
   "dependencies": {
     "@nestjs/config": "^3.2.3",
     "@nestjs/jwt": "^10.2.0",
+    "@nestjs/microservices": "^11.0.9",
     "jose": "^5.8.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
+    "@nest-next-auth-microservices/database": "*",
     "zod": "^3.23.8"
   }
 }
