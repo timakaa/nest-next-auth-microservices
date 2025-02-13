@@ -1,0 +1,19 @@
+{
+  "name": "@nest-next-auth-microservices/contracts",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch"
+  },
+  "dependencies": {
+    "@nestjs/mapped-types": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "typescript": "^5.0.0"
+  }
+}

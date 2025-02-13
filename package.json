@@ -7,9 +7,8 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "dependencies": {},
   "devDependencies": {
-    "@types/passport-google-oauth20": "^2.0.16",
-    "@types/passport-jwt": "^4.0.1",
     "prettier": "^3.2.5",
     "turbo": "^2.1.1",
     "typescript": "^5.4.5"
@@ -17,19 +16,9 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "npm@10.8.1",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "dependencies": {
-    "@nestjs/config": "^3.2.3",
-    "@nestjs/jwt": "^10.2.0",
-    "@nestjs/microservices": "^11.0.9",
-    "jose": "^5.8.0",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-jwt": "^4.0.1",
-    "@nest-next-auth-microservices/database": "*",
-    "zod": "^3.23.8"
-  }
+  "packageManager": "pnpm@9.14.2"
 }
