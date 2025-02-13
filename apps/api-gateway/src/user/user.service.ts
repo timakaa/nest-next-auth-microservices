@@ -13,23 +13,26 @@ export class UserService {
     @Inject(USER_SERVICE_NAME) private readonly userClient: ClientProxy,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     return this.userClient.send(UserPatterns.CREATE_USER, createUserDto);
   }
 
   findAll() {
-    return this.userClient.send('findAllUser', {});
+    return this.userClient.send(UserPatterns.FIND_ALL_USER, {});
   }
 
   findOne(id: number) {
-    return this.userClient.send('findOneUser', id);
+    return this.userClient.send(UserPatterns.GET_USER, id);
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return this.userClient.send('updateUser', { ...updateUserDto, id });
+    return this.userClient.send(UserPatterns.UPDATE_USER, {
+      ...updateUserDto,
+      id,
+    });
   }
 
   remove(id: number) {
-    return this.userClient.send('removeUser', id);
+    return this.userClient.send(UserPatterns.DELETE_USER, id);
   }
 }

@@ -1,24 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpStatus } from '@nestjs/common';
 import {
   CreateUserDto,
   UpdateUserDto,
 } from '@nest-next-auth-microservices/contracts';
 import { hash } from 'argon2';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { RpcException } from '@nestjs/microservices';
 
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createUserDto: CreateUserDto) {
-    const { password, ...user } = createUserDto;
-    const hashedPassword = await hash(password);
-    return await this.prisma.user.create({
-      data: {
-        password: hashedPassword,
-        ...user,
-      },
-    });
+    try {
+      const { password, ...user } = createUserDto;
+      const candidate = await this.findByEmail(user.email);
+      if (candidate) {
+        const error = {
+          status: HttpStatus.BAD_REQUEST,
+          message: 'User already exists',
+        };
+        throw new RpcException(error);
+      }
+      const hashedPassword = await hash(password);
+      return await this.prisma.user.create({
+        data: {
+          password: hashedPassword,
+          ...user,
+        },
+      });
+    } catch (error) {
+      if (error instanceof RpcException) {
+        throw error;
+      }
+      throw new RpcException(error.message);
+    }
   }
 
   async findByEmail(email: string) {

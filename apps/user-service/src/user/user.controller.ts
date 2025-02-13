@@ -16,22 +16,22 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
-  @MessagePattern('findAllUser')
+  @MessagePattern(UserPatterns.FIND_ALL_USER)
   findAll() {
     return this.userService.findAll();
   }
 
-  @MessagePattern('findOneUser')
+  @MessagePattern(UserPatterns.GET_USER)
   findOne(@Payload() id: number) {
     return this.userService.findOne(id);
   }
 
-  @MessagePattern('updateUser')
+  @MessagePattern(UserPatterns.UPDATE_USER)
   update(@Payload() updateUserDto: UpdateUserDto) {
     return this.userService.update(updateUserDto.id, updateUserDto);
   }
 
-  @MessagePattern('removeUser')
+  @MessagePattern(UserPatterns.DELETE_USER)
   remove(@Payload() id: number) {
     return this.userService.remove(id);
   }
