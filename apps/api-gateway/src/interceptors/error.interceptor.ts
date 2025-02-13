@@ -9,13 +9,13 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-function doException(err) {
+function doException(err: any) {
   console.log(err);
   try {
     if (err.status === 'error') {
       return new HttpException('Something went wrong', HttpStatus.BAD_GATEWAY);
     } else {
-      var error = err.message;
+      let error = err.message;
 
       if (err.error) {
         error = err.error;
