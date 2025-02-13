@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.13.2",
+    "@repo/typescript-config": "workspace:*",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "typescript": "^5.0.0"

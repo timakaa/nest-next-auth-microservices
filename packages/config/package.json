@@ -13,5 +13,8 @@
   "dependencies": {
     "@types/node": "^22.13.2",
     "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
   }
 }

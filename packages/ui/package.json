@@ -9,6 +9,8 @@
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch",
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
