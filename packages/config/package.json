@@ -1,0 +1,17 @@
+{
+  "name": "@nest-next-auth-microservices/config",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.13.2",
+    "dotenv": "^16.4.7"
+  }
+}
